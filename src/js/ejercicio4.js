@@ -13,6 +13,8 @@ const commonCourses = () => {
         student2Courses.includes(course)
     );
     console.log(`Common courses: ${common}`);
+    const resultElement = document.getElementById('ejercicio4');
+    resultElement.innerText = `Common courses: ${common}`;
     return common;        
 };
 commonCourses();

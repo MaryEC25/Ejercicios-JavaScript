@@ -12,6 +12,8 @@ const sumAndProduct = () => {
     const productNumbers = arrayNumbers.reduce((number, total) => {
         return number * total;
     })
-    console.log(`Given an array [1, 2, 3, 4] The sum is ${sumNumbers}. The product is ${productNumbers}.`);
+    console.log(`Given an array ${arrayNumbers} the sum is ${sumNumbers}. The product is ${productNumbers}.`);
+    const resultElement = document.getElementById('ejercicio3');
+    resultElement.innerText = `Given an array ${arrayNumbers} the sum is ${sumNumbers}. The product is ${productNumbers}.`;
 }
 sumAndProduct();

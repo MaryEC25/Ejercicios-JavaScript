@@ -15,46 +15,50 @@ At the end of the exercise, there should be 4 people in the array.
 let people = ["Maria", "Dani", "Luis", "Juan", "Camila"];
 
 const arrayPeople = () => {
-    console.log(`People: ${people.join(", ")}`);
-}
+    const arrayInit = () => {
+        console.log(`People: ${people.join(", ")}`);
+    };
+
+    const deletePeople = () => {
+        const withoutDani = people.filter(person => person !== "Dani");
+        console.log(`People without Dani: ${withoutDani.join(", ")}`);
+        const withoutJuan = withoutDani.filter(person => person !== "Juan");
+        console.log(`People whithout Juan: ${withoutJuan.join(", ")}`);
+        return withoutJuan;
+    };
+
+    const movePeople = () => {
+        const people2 = deletePeople();
+        people2.unshift(people2.splice(people2.indexOf("Luis"), 1)[0]);
+        console.log(`Luis at the beginning of array: ${people2.join(", ")}`);
+        return people2;
+    };
+
+    const addPeople = () => {
+        const people3 = movePeople();
+        people3.push("Mariana");
+        console.log(`Adding my name: ${people3.join(", ")}`);
+        return people3;
+    };
+
+    const processPeople = () => {
+        arrayInit();
+        const people4 = addPeople();
+        for (let person of people4) {
+            console.log(person);
+            if (person === "Maria") break;
+        }
+        const mariaIndex = people4.indexOf("Maria");
+        console.log("Maria Index:", mariaIndex);
+        console.log(`There are ${people4.length} people in the array: ${people4.join(", ")}`);
+        const resultElement = document.getElementById('ejercicio5');
+        resultElement.innerText = `There are ${people4.length} people in the array: ${people4.join(", ")}`;
+        return people4;
+    };
+    processPeople();
+};
+
 arrayPeople();
 
-const deletePeople = () => {
-    const withoutDani = people.filter(person => person !== "Dani");
-    console.log(`People without Dani: ${withoutDani.join(", ")}`);
-    const withoutJuan = withoutDani.filter(person => person !== "Juan");
-    console.log(`People whithout Juan: ${withoutJuan.join(", ")}`);
-    return withoutJuan;
-}
-deletePeople();
-
-const movePeople = () =>{
-    const people2 = deletePeople();
-    people2.unshift(people2.splice(people2.indexOf("Luis"), 1)[0]);
-    console.log(`Luis at the beginning of array: ${people2.join(", ")}`);
-    return people2;
-}
-movePeople();
-
-const addPeople = () =>{
-    const people3 = movePeople();
-    people3.push("Mariana");
-    console.log(`Adding my name: ${people3.join(", ")}`);
-    return people3;
-}
-addPeople();
-
-const processPeople = () => {
-    const people4 = addPeople();
-    for (let person of people4) {
-        console.log(person);
-        if (person === "Maria") break;
-    }
-    const mariaIndex = people4.indexOf("Maria");
-    console.log("Maria Index:", mariaIndex);
-    console.log(`There are ${people4.length} people in the array: ${people4.join(", ")}`);
-    return people4;
-}
-processPeople();
 
 
